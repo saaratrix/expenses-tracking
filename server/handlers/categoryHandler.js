@@ -1,8 +1,3 @@
-/**
- * Created on 22.9.2018.
- */
-"use strict";
-
 var Category = require("./../models/category");
 var query = require("./../database/mysql-connection");
 
