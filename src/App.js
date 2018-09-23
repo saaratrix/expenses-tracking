@@ -17,7 +17,7 @@ class App extends Component {
       .then(response => response.json())
       .then(json => this.setState(() => {
         return {
-          test: json.expenses[0].description
+          test: json[0].description
         };
       }));
   }
