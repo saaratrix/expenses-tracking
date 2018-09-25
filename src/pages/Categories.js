@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
 class Categories extends Component {
+
+  componentDidMount () {
+
+  }
+
   render () {
     return (
       <div>

@@ -5,10 +5,15 @@ import './App.css';
 
 import Home from './pages/Home';
 import Categories from './pages/Categories';
+import Expenses from './pages/Expenses';
 
 class App extends Component {
   constructor() {
     super();
+  }
+
+  componentDidMount () {
+
   }
 
   render() {
@@ -21,11 +26,15 @@ class App extends Component {
               <Link to="/">Home</Link>
             </li>
             <li>
+              <Link to="/expenses">Expenses</Link>
+            </li>
+            <li>
               <Link to="/categories">Categories</Link>
             </li>
           </ul>
           <hr />
           <Route exact path="/" component={Home} />
+          <Route path="/expenses" component={Expenses} />
           <Route path="/categories" component={Categories} />
         </div>
       </Router>

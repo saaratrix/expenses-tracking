@@ -25,8 +25,10 @@ class ExpenseHandler {
 
       for ( let i = 0; i < rows.length; i++) {
         var row = rows[i];
+        const date = row.date.toISOString().substring(0, 10);
+
         var category = new Category(row.categoryId, row.categoryName, row.categoryColour);
-        var expense = new Expense(row.id, row.description, row.price, row.date, row.forCompany, category);
+        var expense = new Expense(row.id, row.description, row.price, date, row.forCompany, category);
 
         expenses.push(expense);
       }
