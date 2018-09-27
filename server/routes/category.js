@@ -13,6 +13,27 @@ router.get("/get", function(req, res, next) {
   });
 });
 
+router.get("/get/:id", function(req, res, next) {
+  const id = parseInt(req.params.id, 10);
+  let error = "";
+  
+  // It would be better to have a proper SQL that doesn't fetch all... but... whatever for this project.
+  _categoryHandler.getAll().then(categories => {
+    const category = categories.find(category => {
+      return category.id === id;
+    });
+
+    if (!category) {
+      error = "no category with that id found.";
+    }
+
+    res.json({
+      category: category,
+      error: error
+    });
+  });
+});
+
 router.post("/put", function(req, res, next) {
 
   let category = getCategoryFromBody(req.body);

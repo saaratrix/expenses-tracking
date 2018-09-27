@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const index = require('./routes/index');
 const expenses = require("./routes/expenses");
+const categories = require("./routes/category");
 
 const app = express();
 
@@ -21,8 +22,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// Routes
 app.use('/api', index);
 app.use("/api/expenses", expenses);
+app.use("/api/categories", categories);
+
 app.get('*', (req, res) => {
   res.sendFile('build/index.html', { root: global });
 });
