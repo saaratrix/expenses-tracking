@@ -14,7 +14,7 @@ class ExpenseHandler {
    *
    * @return {Promise<MySQLResults|MySQLError>}
    */
-  getAll () {
+  getAllSorted () {
     return query(`select distinct e.id, e.description, e.price, e.date, e.forCompany, c.id as categoryId, c.name as categoryName, c.colour as categoryColour 
                   from expenses as e 
                   inner join categories as c 
@@ -23,17 +23,75 @@ class ExpenseHandler {
     .then((rows) => {
       let expenses = [];
 
+      let allExpenses = [];
+      let categories = {};
+
       for ( let i = 0; i < rows.length; i++) {
         var row = rows[i];
         const date = row.date.toISOString().substring(0, 10);
 
-        var category = new Category(row.categoryId, row.categoryName, row.categoryColour);
+        let category = categories[row.categoryId];
+
+        if (!category) {
+          category = new Category(row.categoryId, row.categoryName, row.categoryColour);
+          categories[row.categoryId] = category;
+        }
+
         var expense = new Expense(row.id, row.description, row.price, date, row.forCompany, category);
 
-        expenses.push(expense);
+        allExpenses.push(expense);
       }
 
-      return expenses;
+      // Sort by year
+      // { year: number, months: [] }
+      // { month: number, expenses }
+
+      let yearItems = [];
+      for (let i = 0; i < allExpenses.length; i++) {
+        const expense = allExpenses[i];
+        const date = new Date(expense.date);
+
+        const fullYear = date.getFullYear();
+        const fullMonth = date.getMonth();
+
+        let yearItem = yearItems.find(item => {
+          return item.year === fullYear;
+        });
+
+        if (!yearItem) {
+          yearItem = {
+            year: fullYear,
+            months: []
+          };
+          yearItems.push(yearItem);
+        }
+
+        let monthItem = yearItem.months.find(item => {
+          return item.month === fullMonth;
+        });
+
+        if (!monthItem) {
+          monthItem = {
+            month: fullMonth,
+            expenses: []
+          };
+          yearItem.months.push(monthItem);
+        }
+
+        monthItem.expenses.push(expense);
+      }
+
+      for (let i = 0; i < yearItems.length; i++) {
+        yearItems[i].months.sort((a, b) => {
+          return a.month - b.month;
+        });
+      }
+
+      yearItems.sort((a, b) => {
+        return a.year - b.year;
+      });
+
+      return yearItems;
     });
   }
 

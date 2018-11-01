@@ -7,8 +7,8 @@ var Category = require("./../models/category");
 var ExpenseHandler = require("./../handlers/expenseHandler");
 var _expenseHandler = new ExpenseHandler();
 
-router.get("/get", function(req, res, next) {
-  _expenseHandler.getAll().then((expenses) => {
+router.get("/getsorted", function(req, res, next) {
+  _expenseHandler.getAllSorted().then((expenses) => {
     res.json(expenses);
   });
 });

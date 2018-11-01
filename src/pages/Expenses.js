@@ -8,7 +8,7 @@ class Expenses extends Component {
   }
 
   componentDidMount () {
-    fetch("/api/expenses/get")
+    fetch("/api/expenses/getsorted")
     .then(response => response.json())
     .then(json => this.setState({ expenses: json }) )
   }
@@ -18,20 +18,20 @@ class Expenses extends Component {
   }
 
   render () {
-    const listItems = this.state.expenses.map( expense =>  {
-      return (
-        <li key={expense.id}>
-          {expense.description}
-        </li>
-      );
-    });
+    // const listItems = this.state.expenses.map( expense =>  {
+    //   return (
+    //     <li key={expense.id}>
+    //       {expense.description}
+    //     </li>
+    //   );
+    // });
 
     return (
       <div>
         <h2>Expenses</h2>
-        <ul>
-          {listItems}
-        </ul>
+        {/*<ul>*/}
+          {/*{listItems}*/}
+        {/*</ul>*/}
       </div>
     )
   }
