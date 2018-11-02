@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Year from "../components/Year";
 
 class Expenses extends Component {
 
@@ -13,25 +14,17 @@ class Expenses extends Component {
     .then(json => this.setState({ expenses: json }) )
   }
 
-  getExpensesSortedByDate () {
-    return [];
-  }
-
   render () {
-    // const listItems = this.state.expenses.map( expense =>  {
-    //   return (
-    //     <li key={expense.id}>
-    //       {expense.description}
-    //     </li>
-    //   );
-    // });
+    const yearItems = this.state.expenses.map( item =>  {
+      return (
+        <Year key={item.year} item={item}></Year>
+      );
+    });
 
     return (
       <div>
         <h2>Expenses</h2>
-        {/*<ul>*/}
-          {/*{listItems}*/}
-        {/*</ul>*/}
+        {yearItems}
       </div>
     )
   }
