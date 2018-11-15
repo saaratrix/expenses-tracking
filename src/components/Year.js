@@ -20,10 +20,10 @@ class Year extends Component {
 
     return (
       <div>
-        <p>A year item - {this.state.year}</p>
+        <h3>{this.state.year}</h3>
         {monthItems}
       </div>
-    )
+    );
   }
 }
 
