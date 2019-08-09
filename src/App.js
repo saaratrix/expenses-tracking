@@ -6,6 +6,7 @@ import './App.css';
 import Home from './pages/Home';
 import Categories from './pages/Categories';
 import Category from './pages/Category';
+import AddCategory from "./pages/AddCategory";
 import Expenses from './pages/Expenses';
 
 class App extends Component {
@@ -14,7 +15,6 @@ class App extends Component {
   }
 
   componentDidMount () {
-
   }
 
   render() {
@@ -37,6 +37,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/expenses" component={Expenses} />
           <Route path="/categories" component={Categories} />
+          <Route path="/category-create/" component={AddCategory} />
           <Route path="/category/:id?" component={Category} />
         </div>
       </Router>

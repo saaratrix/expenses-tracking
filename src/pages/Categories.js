@@ -38,6 +38,9 @@ class Categories extends Component {
     return (
       <div>
         <h2>Categories</h2>
+        <Link to={"/category-create/"}>
+          <button>Create Category</button>
+        </Link>
         <ul>
           {listItems}
         </ul>

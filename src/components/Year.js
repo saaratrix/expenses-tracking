@@ -3,8 +3,6 @@ import Month from "./Month";
 
 class Year extends Component {
 
-
-
   constructor (props) {
     console.log("item:",  props.item);
     super();

@@ -2,22 +2,21 @@ import React, { Component } from "react";
 import Expense from "./Expense";
 
 const Months = [
-  "Tammikuuta",
-  "Helmikuuuta",
-  "Maaliskuuta",
-  "Huhtikuuta",
-  "Toukokuuta",
-  "Kesäkuuta",
-  "Heinäkuuta",
-  "Elokuuta",
-  "Syyskuuta",
-  "Lokakuuta",
-  "Marraskuuta",
-  "Joulukuuta",
+  "Tammikuu",
+  "Helmikuuu",
+  "Maaliskuu",
+  "Huhtikuu",
+  "Toukokuu",
+  "Kesäkuu",
+  "Heinäkuu",
+  "Elokuu",
+  "Syyskuu",
+  "Lokakuu",
+  "Marraskuu",
+  "Joulukuu",
 ];
 
 class Month extends Component {
-
 
   constructor (props) {
     super();
