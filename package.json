@@ -3,21 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "debug": "^4.1.1",
-    "express": "^4.17.1",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
+    "express": "^4.17.3",
     "jade": "^1.11.0",
-    "morgan": "^1.9.1",
-    "mysql": "^2.17.1",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^4.3.1"
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "concurrently": "^4.1.1",
-    "nodemon": "^1.19.1",
-    "react-scripts": "^2.1.8"
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15",
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"nodemon server/server.js\"",
