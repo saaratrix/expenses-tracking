@@ -25,6 +25,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://saaratrix.github.io/expenses-tracking/build/",
   "proxy": "http://localhost:3001",
   "browserslist": [
     ">0.2%",
